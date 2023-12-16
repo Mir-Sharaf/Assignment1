@@ -1,0 +1,68 @@
+﻿@model Assignment1.Models.CompetitionInvite
+
+@{
+    ViewData["Title"] = "RsvpForm";
+}
+
+<h1>RsvpForm</h1>
+
+<h4>GuestResponse</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-controller="Home" asp-action="Submit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TwitterAccount" class="control-label"></label>
+                <input asp-for="TwitterAccount" class="form-control" />
+                <span asp-validation-for="TwitterAccount" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Interest" class="control-label"></label>
+                <select asp-for="Interest" asp-items="Html.GetEnumSelectList<Assignment1.Models.TechnicalInterest>()" class="form-control">
+                    <option value="">Select your technical interest</option>
+                </select>
+                <span asp-validation-for="Interest" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-4">
+                <input type="submit" value="Accept Invitation" name="submitButton" class="btn btn-primary" />
+                <input type="submit" value="Send Regrets" name="submitButton" class="btn btn-secondary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

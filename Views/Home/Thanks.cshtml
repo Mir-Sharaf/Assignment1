@@ -1,0 +1,19 @@
+﻿@model Assignment1.Models.CompetitionInvite
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Thank You</h2>
+        @if (Model != null && Model.WillAttend)
+        {
+            <p>You were enrolled in the <b>@Model.Interest.ToString() </b>track of the competition.</p>
+        }
+        else
+        {
+            <p>Thank you for your response.</p>
+        }
+        <a asp-action="RsvpForm">Back to Rsvp Form</a>
+    </div>
+    <div class="col-md-6">
+        
+    </div>
+</div>
